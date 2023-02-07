@@ -21,9 +21,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore
-      working-directory: ../StreamApp
+      run: dotnet restore ./StreamApp/StreamApp.sln
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build ./StreamApp/StreamApp.sln --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test ./StreamApp/StreamApp.sln --configuration Release --no-restore
